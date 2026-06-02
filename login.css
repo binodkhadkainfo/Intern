@@ -49,8 +49,6 @@ label {
 input {
     padding: 8px;
     border-radius: 5px;
-    border: none;
-    outline: none;
 }
 
 button {
@@ -60,5 +58,4 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
