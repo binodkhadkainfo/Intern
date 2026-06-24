@@ -5,21 +5,54 @@
     <title>Array</title>
 </head>
 <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+   
     <div class="bg-white p-4 rounded-lg shadow-md w-96">
         <h2 class="text-xl font-bold mb-4">Add Items</h2>
+
         <div class="flex gap-2">
             <input
-            type="text"
-            id="itemInput"
-            placeholder="Enter Items"
-            class="flex-1 border border-gray-300 rounded-lg px-4 py-2"
+                type="text"
+                id="itemInput"
+                placeholder="Enter Item"
+                class="flex-1 border border-gray-300 rounded-lg px-4 py-2"
             >
+
             <button
                 onclick="addItem()"
                 class="bg-blue-500 text-white w-[80px] rounded"
-            >Add</button>
+            >
+                Add
+            </button>
         </div>
-    </div>
-</body>
 
+        <ul id="itemList" class="mt-4 list-disc pl-5"></ul>
+    </div>
+
+    <script>
+        let items = [];
+
+        function addItem() {
+            let input = document.getElementById("itemInput");
+            let value = input.value.trim();
+
+            if (value === "") {
+                alert("Please enter an item");
+                return;
+            }
+            items.push(value);
+            let list = document.getElementById("itemList");
+            list.innerHTML = "";
+            items.forEach(item => {
+                let li = document.createElement("li");
+                li.textContent = item;
+                list.appendChild(li);
+            });
+
+            console.log(items);
+            input.value = "";
+            input.focus();
+        }
+    </script>
+
+</body>
 </html>
